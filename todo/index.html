@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #task_container,
+        .completedTasks_container {
+            width: 500px;
+            height: 500px;
+            background-color: rgb(226, 226, 226);
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10%;
+
+        }
+
+        .main_contanier {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        li {
+            font-size: 2rem;
+            font-weight: bolder;
+
+        }
+
+        .completed {
+            color: red;
+        }
+
+        .completedTasks_container {
+            background-color: bisque;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            margin: 2rem;
+        }
+
+        .modal {
+            position: absolute;
+            display: none;
+            top: 30%;
+            left: 30%;
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            z-index: 12;
+        }
+
+        .show{
+            display: block;
+        }
+
+        .blur{
+            filter: blur(5px);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+
+
+        <h1>This is a todo list</h1>
+
+        <label for="Task Input">Enter Your task :
+            <input type="text" id="task-input">
+            <button id="submit-btn">Submit Task</button>
+        </label>
+    
+        <div class="main_contanier">
+            <div id="task_container">
+                <!-- You can use an underscore if you want to select the entire word in double click because if you use a hyfen then it is able to select a single word at a time-->
+                <h1>Task Container</h1>
+                <ul>
+    
+                </ul>
+            </div>
+    
+            <div class="completedTasks_container">
+                <h1>Completed Tasks</h1>
+                <div class="completedTasks_containerli">
+
+
+            </div>
+        </div>
+    
+    </div>
+    <button id="openModal">Open</button>
+
+    <div class="modal">
+        <h1 style="color: white;text-align:center">This is a modal</h1>
+    </div>
+
+</body>
+
+<script>
+
+    const taskInput = document.getElementById('task-input');
+    let submitBtn = document.getElementById('submit-btn');
+    let ul = document.querySelector('ul');
+    let taskArr = [];
+
+
+    let openModal = document.getElementById('openModal');
+    openModal.addEventListener("click",()=>{
+        document.querySelector(".modal").classList.toggle('show');
+        let main = document.querySelector('.main');
+        main.classList.toggle('blur')
+    })
+
+
+    /* let completedTasks = document.getElementsByClassName('completedTask');
+     let completedTaskContainer = document.querySelector('.completedTasks_container');
+     console.log(completedTasks);
+     completedTasks = Array.from(completedTasks);
+     completedTasks.forEach((task) => {
+ 
+         completedTaskContainer.appendChild(task);
+       console.log(task.innerText)
+     });*/
+
+
+
+    function loadTask() {
+        ul.innerHTML = '';
+        console.log(taskArr, "this is insided loadTask function");
+        taskArr.forEach((task) => {
+            let li = document.createElement('li');
+            li.innerText = task;
+            li.addEventListener("click", () => {
+                li.classList.toggle('completed');
+                loadCompletedTask();
+            })
+            ul.appendChild(li);
+        });
+    }
+
+    function loadCompletedTask() {
+        let completedTasks = document.getElementsByClassName('completed');
+        console.log(completedTasks, "this is insided loadCompletedTask function")
+
+        //HTML collection received from getElementsByClassName is not an array so we need to convert it into an array
+        console.log(completedTasks);
+        let completedTaskContainer = document.querySelector('.completedTasks_containerli');
+        //change the HTML collections to array because I want to use forEach method that is applicable to arrays.
+        //completedTaskContainer.innerHTML = '';
+        completedTasks = Array.from(completedTasks);
+        completedTasks.forEach((task) => {
+            completedTaskContainer.appendChild(task);
+            console.log(task.innerText)
+        });
+    }
+
+
+    submitBtn.addEventListener('click', function () {
+        let task = taskInput.value.trim();
+        if (task === '') {
+            alert('Please enter a task');
+            return;
+            console.log("dsfsdfsdf") //This will not work due to return keyword
+        }
+        taskArr.push(task);
+        //console.log(taskArr);
+        loadTask();
+        taskInput.value = '';
+    });
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Application </title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+
+        .container {
+            width: 40vw;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 100px;
+            background-color: gray;
+            padding: 2rem;
+            position: relative;
+            top: 10vh;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            margin: 1rem;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .inc {
+            color: white;
+            background-color: chartreuse;
+        }
+
+        .dec {
+            color: white;
+            background-color: rgb(254, 91, 91);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Helllo counter</h1>
+        <h1>Counter = > <span>0</span></h1>
+        <button class="inc" onclick="add()">Increment +</button>
+        <button class="dec" onclick="substract()">Decrment -</button>
+    </div>
+
+    <script>
+
+        let span = document.querySelector('span');
+        let count = parseInt(span.innerText)
+
+        function add() {
+            if (count >= 10) {
+                alert("The count cannot be greater than 10");
+                count = 0
+                span.innerText = count;
+            } else {
+                count++;
+                span.innerText = count;
+            }
+        }
+        function substract() {
+            if (count <=0) {
+                alert("The count cannot smaller than 0");
+            } else {
+                count--;
+                span.innerText = count;
+            }
+        }
+
+
+    </script>
+
+</body>
+
+<script>
+
+</script>
+
+</html>

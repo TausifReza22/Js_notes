@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple StopWatch</title>
+    <style>
+        body {
+            background-color: beige;
+            text-align: center;
+        }
+
+        div {
+            margin: 0 auto;
+
+        }
+
+        #stop {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This is a simple StopWatch</h1>
+
+    <div>
+        <h2 id="display">00:00:00</h2>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+
+
+    <script>
+
+        let startBtn = document.getElementById('start');
+        let stopBtn = document.getElementById('stop');
+        let resetBtn = document.getElementById('reset');
+        let display = document.getElementById('display');
+
+
+        let sec = 0
+        let mins = 0
+        let hrs = 0
+
+        let stopWatchInterval;
+
+        startBtn.addEventListener("click", () => {
+            //startBtn.innerText = `${startBtn.innerText === "Start" ? "Pause" : "Start"}`
+            if (startBtn.innerText === "Start") {
+                startBtn.style.display = "none"
+                stopBtn.style.display = "block"
+            }
+            stopWatchInterval = setInterval(() => {
+                sec++
+                if (sec > 60) {
+                    mins = mins + 1
+                    sec = 0
+                }
+                if(mins >10){
+                    hrs = hrs + 1
+                    mins = 0
+                }
+                display.innerText = `${hrs < 10 ? "0" + hrs : hrs}:${mins < 10 ? "0" + mins : mins}:${sec < 10 ? "0" + sec : sec}`
+            }, 10)
+        })
+
+
+        stopBtn.addEventListener("click", () => {
+            if (stopBtn.innerText === "Stop") {
+                startBtn.style.display = "block"
+                stopBtn.style.display = "none"
+            }
+            clearInterval(stopWatchInterval);
+            display.innerText = `${hrs < 10 ? "0" + hrs : hrs}:${mins < 10 ? "0" + mins : mins}:${sec < 10 ? "0" + sec : sec}`
+        })
+
+
+        resetBtn.addEventListener("click", () => {
+            clearInterval(stopWatchInterval);
+            sec = 0
+            mins = 0
+            hrs = 0
+            display.innerText = `${hrs < 10 ? "0" + hrs : hrs}:${mins < 10 ? "0" + mins : mins}:${sec < 10 ? "0" + sec : sec}`
+        })
+    </script>
+
+</body>
+
+</html>

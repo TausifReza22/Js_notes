@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Revision</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Book Manager</h1>
+
+    <label for="book_name">Book Name</label>
+    <input type="text" name="book_name" id="book_name">
+    <label for="author">Author</label>
+    <input type="text" name="" id="author">
+    <label for="price">Price</label>
+    <input type="text" name="" id="price">
+
+    <button id="add_book">Add book</button>
+
+    <h1>List of books</h1>
+
+    <ul id="book_list">
+        <!-- <li>Book Name: <span id="book_name">Book 1</span> Author: <span id="author">Author 1</span> Price: <span id="price">100</span></li> -->
+    </ul>
+
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- <tr>
+                <td>Book 1</td>
+                <td>Author 1</td>
+                <td>100</td>
+            </tr> -->
+
+        </tbody>
+
+
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

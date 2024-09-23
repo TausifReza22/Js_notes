@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 0 auto;
+        }
+        #form-data {
+            width: 50%;
+            height: auto;
+            margin: 0 auto;
+            background-color: chartreuse;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">This is form </h1>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        <p id="nameErrMessage" style="color: red; display:none">Name should not be empty</p>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Enter your mail">
+        <p id="emailErrMessage" style="color: red; display:none">Email should not be empty</p>
+        <br>
+        <label for="password">Password:</label>
+        <input type="input" name="password" id="password" placeholder="Enter your password">
+        <p id="passwordErrMessage" style="color: red; display:none">Password should not be empty</p>
+        <br>
+        <button id="submitBtn" type="submit">Submit</button>
+    </form>
+
+    <div id="form-data">
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

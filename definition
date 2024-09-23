@@ -1,0 +1,18 @@
+
+    <button id="btn">Click me</button>
+    <p>Lorem ipsum  inventore quos &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sint nesciunt in saepe neque exercitationem assumenda, laudantium quis nostrum tempora illum molestias. Est eius animi sit aspernatur!</p>
+
+        Javascript is a single threaded synchronous language. It means it can execute only one task at a time.
+
+        Varibales: the containers for storing a value. let const and var
+
+        keywords to declare and initialize a variable: let, const and var
+
+        var: The oldest way to declare a variable. It is not recommended to use var to declare a variable. redaclaration and reassigning is possible in var.
+
+        ES 6 introduced two new ways to declare a variable:
+        let: By using let it gives the facility to reassgin a value to a variable.
+        
+        const:  It means the varibale declared using const cannot be reassigned and redeclared, And it should remain constant throughout the program.
+
+    

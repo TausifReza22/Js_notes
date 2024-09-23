@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: beige;
+            text-align: center;
+        }
+
+        input {
+            margin-top: 20px;
+            width: 400px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 150px;
+            border-radius: 5px;
+            border: 1px solid black;
+            background-color: rgb(118, 245, 131);
+            cursor: pointer;
+        }
+
+        #removeData,
+        #removeAllData {
+            background-color: rgb(255, 149, 149);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>The Storage Types</h1>
+
+    <label for="input">Please Input Something:
+        <input type="text" name="userInput" id="userInput">
+    </label>
+    <button>Submit </button>
+
+    <button id="getData">Get Data </button>
+
+    <button id="removeData">Remove Data</button>
+    <button id="removeAllData">Remove All</button>
+</body>
+<script>
+
+    //LOCAL STORAGE AND SESSION STORAGE ARE THE TWO TYPES OF STORAGE IN JAVASCRIPT IN STRING FORMAT.
+
+    //Local Storage: It stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser cache / Locally Stored Data.
+
+    //1. Set Item: To store data in local storage, we use the setItem() method. The setItem() method takes two parameters, the first parameter is the key, and the second parameter is the value.
+
+    //2. Get Item: To get data from local storage, we use the getItem() method. The getItem() method takes one parameter, the key, and returns the value.
+
+    //3. Remove Item: To remove data from local storage, we use the removeItem() method. The removeItem() method takes one parameter, the key, and removes the corresponding key-value pair.
+
+    let btn = document.querySelector('button');
+    let inputTag = document.querySelector('input');
+    let getData = document.getElementById('getData');
+    let removeData = document.getElementById('removeData');
+    let removeAllData = document.getElementById('removeAllData');
+    let userInput = [];
+    
+    let userObj = {
+        name: 'John',
+        age: 25
+    };
+
+    btn.addEventListener('click', function () {
+        console.log(inputTag.value);
+        userInput.push(inputTag.value);
+        inputTag.value = '';
+        console.log(userInput);
+        localStorage.setItem("userInput", JSON.stringify(userInput));
+    });
+
+
+    getData.addEventListener("click", () => {
+        let data = JSON.parse(localStorage.getItem("userInput"));
+        console.log(data);
+    })
+
+    removeData.addEventListener("click", (e) => {
+        localStorage.removeItem("userInput");
+    });
+
+
+    removeAllData.addEventListener("click", (e) => {
+        localStorage.clear("userInput");
+    })
+
+</script>
+
+
+
+</html>
+
+
